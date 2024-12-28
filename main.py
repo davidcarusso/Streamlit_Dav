@@ -118,36 +118,72 @@ def codigo_siete():
     
 def codigo_ocho():
 
-    tab1, tab2 = st.tabs(["Select Box", "Multi Select"])
+    tab1, tab2, tab3, codigo = st.tabs(
+        ["Select Box", "Multi Select", "Check Box", "Mostrar Codigo"])
 
     with tab1:
-        st.write("# st.selectbox")
+        st.write("# st.selectbox()")
         color = st.selectbox("Cual es tu color favorito?", ["Rojo", "Azul", "Amarillo"])
         st.write(f"### Tu color favorito es el {color}")
 
     with tab2:
-        st.write("# st.multiselect")
+        st.write("# st.multiselect()")
         colores = st.multiselect("Cuales son tus colores favoritos?", ["Rojo", "Amarillo", "Azul", "Verde", "Naranja", "Violeta"])
         st.write("### Tu seleccionaste", colores)
 
+    with tab3:
+        st.write("# st.checkbox()")
+        st.write("Que quieres ordenar?")
 
-    if st.button("Mostrar Codigo"):
-        st.code("""
+        # hay que seleccionar cada uno como una variable
+        # genera un valor booleano de cada variable
+        helado = st.checkbox("Helado", help="Helado de chocolate, vainilla o frutilla.")
+        cafe = st.checkbox("Cafe")
+        coca = st.checkbox("Coca-Cola")
+        
+        if helado:
+            st.write("Great! Here's some more 🍦")
+        if cafe:
+            st.write("Okay, here's some coffee ☕")
+        if coca:
+            st.write("Here you go 🥤")
     
-    # Genea el separador, se debe dar el nombre en formato str
-    tab1, tab2 = st.tabs(["Select Box", "Multi Select"])    
+    with codigo:
+        st.write("# Codigo usado")
+        st.code("""
+    tab1, tab2, tab3, codigo = st.tabs(
+        ["Select Box", "Multi Select", "Check Box", "Codigo"])
 
     with tab1:
-        st.write("# st.selectbox")
+        st.write("# st.selectbox()")
         color = st.selectbox("Cual es tu color favorito?", ["Rojo", "Azul", "Amarillo"])
         st.write(f"### Tu color favorito es el {color}")
 
     with tab2:
-        st.write("# st.multiselect")
-        colores = st.multiselect("Cuales son tus colores favoritos?", ["Rojo", "Amarillo", "Azul", "Verde", "Naranja", "Violeta"])
+        st.write("# st.multiselect()")
+        colores = st.multiselect("Cuales son tus colores favoritos?", 
+                ["Rojo", "Amarillo", "Azul", "Verde", "Naranja", "Violeta"])
         st.write("### Tu seleccionaste", colores)
 
+    with tab3:
+        st.write("# st.checkbox()")
+        st.write("Que quieres ordenar?")
+
+        # hay que seleccionar cada uno como una variable
+        # genera un valor booleano de cada variable
+        helado = st.checkbox("Helado", 
+                help="Helado de chocolate, vainilla o frutilla.")
+        cafe = st.checkbox("Cafe")
+        coca = st.checkbox("Coca-Cola")
+        
+        if helado:
+            st.write("Great! Here's some more 🍦")
+        if cafe:
+            st.write("Okay, here's some coffee ☕")
+        if coca:
+            st.write("Here you go 🥤")
 """, language="python")
+
     
 
 ####################### Codigo de funcionalidad ###############################
