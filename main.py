@@ -43,7 +43,7 @@ def codigo_cuatro():
 def codigo_cinco():
     st.write("# Mostrar Grafico")
 
-    col1, col2 = st.columns(2, border=True)
+    col1, col2 = st.columns(2)
     df = pd.DataFrame(
         np.random.rand(200,3),
         columns=["a", "b", "c"]
