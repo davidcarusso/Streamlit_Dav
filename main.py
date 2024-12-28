@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import altair as alt
+from datetime import time, datetime
 
 def codigo_uno():
     st.write("# Hola mundo!!!")
@@ -59,9 +60,35 @@ def codigo_cinco():
     st.write(c)
 
 
+def codigo_seis():
+    st.write("# st.slider")
+    st.write("Slider")
+
+    edad = st.slider("Cuantos años tienes ?",0, 130, 31)
+    st.write(f"Yo tengo {edad} años de edad.")
+
+    st.write("## Range slider:")
+    valores = st.slider("Seleccione un rango de valor", 0.0, 100.0, (25.0, 75.0), step=0.1)
+    st.write("Valores: ", valores)
+
+    st.write("## Rango de horario:")
+    agenda = st.slider("Agendar una reunion:", 
+                       value=(time(11,30), time(12,45)))
+    st.write(f"Estas programado para el horario de: {agenda}.")
+
+    st.write("## Datetime slider")
+    fecha = st.slider("Cuando empiezas?", 
+                      value=datetime(2024,12,28,10, 31),
+                       format="DD/MM/YY - hh:mm" )
+    st.write(f"Comienzas el: {fecha}")
+
+
+####################### Codigo de funcionalidad ###############################
+
+
 def codigo_principal():
     
-    custom = st.selectbox("Elegi la opcion: ", ["Caso 1", "Caso 2", "Caso 3", "Caso 4", "Caso 5"])
+    custom = st.selectbox("Elegi la opcion: ", ["Caso 1", "Caso 2", "Caso 3", "Caso 4", "Caso 5", "Slider"])
     match custom:
         case "Caso 1":
             codigo_uno()
@@ -73,6 +100,9 @@ def codigo_principal():
             codigo_cuatro()
         case "Caso 5":
             codigo_cinco()
+        case "Slider":
+            codigo_seis()
+
 
 
 def main():
