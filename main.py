@@ -115,13 +115,49 @@ def codigo_siete():
         st.line_chart(df)   # Grafico de linea con el df
         """, language="python")
 
+    
+def codigo_ocho():
+
+    tab1, tab2 = st.tabs(["Select Box", "Multi Select"])
+
+    with tab1:
+        st.write("# st.selectbox")
+        color = st.selectbox("Cual es tu color favorito?", ["Rojo", "Azul", "Amarillo"])
+        st.write(f"### Tu color favorito es el {color}")
+
+    with tab2:
+        st.write("# st.multiselect")
+        colores = st.multiselect("Cuales son tus colores favoritos?", ["Rojo", "Amarillo", "Azul", "Verde", "Naranja", "Violeta"])
+        st.write("### Tu seleccionaste", colores)
+
+
+    if st.button("Mostrar Codigo"):
+        st.code("""
+    
+    # Genea el separador, se debe dar el nombre en formato str
+    tab1, tab2 = st.tabs(["Select Box", "Multi Select"])    
+
+    with tab1:
+        st.write("# st.selectbox")
+        color = st.selectbox("Cual es tu color favorito?", ["Rojo", "Azul", "Amarillo"])
+        st.write(f"### Tu color favorito es el {color}")
+
+    with tab2:
+        st.write("# st.multiselect")
+        colores = st.multiselect("Cuales son tus colores favoritos?", ["Rojo", "Amarillo", "Azul", "Verde", "Naranja", "Violeta"])
+        st.write("### Tu seleccionaste", colores)
+
+""", language="python")
+    
+
 ####################### Codigo de funcionalidad ###############################
 
 
 def codigo_principal():
     
     custom = st.selectbox("Elegi la opcion: ", 
-                          ["Caso 1", "Caso 2", "Caso 3", "Caso 4", "Caso 5", "Slider", "Grafico Lineal"])
+                          ["Caso 1", "Caso 2", "Caso 3", "Caso 4", 
+                           "Caso 5", "Slider", "Grafico Lineal", "Select Box"])
     match custom:
         case "Caso 1":
             codigo_uno()
@@ -137,6 +173,8 @@ def codigo_principal():
             codigo_seis()
         case "Grafico Lineal":
             codigo_siete()
+        case "Select Box":
+            codigo_ocho() 
 
 
 
