@@ -5,23 +5,14 @@ import altair as alt
 from datetime import time, datetime
 
 def codigo_uno():
-    st.write("# Hola mundo!!!")
     st.write("# st.button")
+    st.write("### Hola mundo!!!")
 
-def codigo_dos():
-    st.code("""
-    st.write("# st.button")
-
-    if st.button("Say hello"):
-        st.write("Why hello there")
+    if st.button("Di Hola"):
+        st.write("¿Por qué hola?")
     else: 
-        st.write("Goodbye")
-    """, language="python")
+        st.write("Chau")
 
-    if st.button("Say hello"):
-        st.write("Why hello there")
-    else: 
-        st.write("Goodbye")
 
 def codigo_tres():
     st.write(f"""
@@ -42,22 +33,34 @@ def codigo_tres():
 
 
 def codigo_cuatro():
+    st.write("# Data Frame en st.write()")
     df = pd.DataFrame({
     "Primera Columna": [1,2,3,4],
     "Segunda Columna": [10,20,30,40]})
     st.write('Below is a DataFrame:', df, 'Above is a dataframe.')
 
+
 def codigo_cinco():
-    st.write("# Display chart")
+    st.write("# Mostrar Grafico")
+
+    col1, col2 = st.columns(2, border=True)
     df = pd.DataFrame(
         np.random.rand(200,3),
         columns=["a", "b", "c"]
     )
-    st.write(df.head())
     c = alt.Chart(df).mark_circle().encode(
         x='a', y='b', size='c', color='c', tooltip=['a', 'b', 'c']
     )
-    st.write(c)
+
+    with col1:
+        st.write("Data Frame")
+        st.write(df.head())
+    with col2:
+        st.write("Grafico")
+        st.write(c)
+        c = alt.Chart(df).mark_circle().encode(
+        x='a', y='b', size='c', color='c', tooltip=['a', 'b', 'c']
+    )
 
 
 def codigo_seis():
@@ -192,18 +195,16 @@ def codigo_ocho():
 def codigo_principal():
     
     custom = st.selectbox("Elegi la opcion: ", 
-                          ["Caso 1", "Caso 2", "Caso 3", "Caso 4", 
-                           "Caso 5", "Slider", "Grafico Lineal", "Select Box"])
+                          ["Boton","Write", "Data Frame", 
+                           "Show graph", "Slider", "Grafico Lineal", "Select Box"])
     match custom:
-        case "Caso 1":
+        case "Boton":
             codigo_uno()
-        case "Caso 2":
-            codigo_dos()
-        case "Caso 3":
+        case "Write":
             codigo_tres()
-        case "Caso 4":
+        case "Data Frame":
             codigo_cuatro()
-        case "Caso 5":
+        case "Show graph":
             codigo_cinco()
         case "Slider":
             codigo_seis()
