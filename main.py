@@ -83,12 +83,45 @@ def codigo_seis():
     st.write(f"Comienzas el: {fecha}")
 
 
+def codigo_siete():
+    st.write("# Grafico de Linea")
+    df = pd.DataFrame(
+        np.random.randn(20,3),  # 20 filas, 3 columnas. datos aletorios
+        columns=["A", "B", "C"]        
+        )
+    
+    col1, col2 = st.columns(2, border=True)  # inicio las columnas | El atributo border = True (genera un borde y limita el tamño)
+
+    with col1:
+        st.write("## Data Frame")
+        st.write(df.head()) # data frame aletorio, primeras 5 filas
+    with col2:
+        st.write("## Grafico de Linea ")
+        st.line_chart(df)   # genera un grafico de linea con los datos generados en el df
+
+    if st.button("Mostrar el codigo"):
+        st.code("""
+    
+    # inicio las columnas 
+    # El atributo border = True (genera un borde y limita el tamño)
+    col1, col2 = st.columns(2, border=True)  
+                
+    with col1: # Columnas N° 1 
+        st.write("## Data Frame")
+        st.write(df.head()) # data frame aletorio, primeras 5 filas
+    
+    with col2: # Columna N° 2
+        st.write("## Grafico de Linea ")
+        st.line_chart(df)   # Grafico de linea con el df
+        """, language="python")
+
 ####################### Codigo de funcionalidad ###############################
 
 
 def codigo_principal():
     
-    custom = st.selectbox("Elegi la opcion: ", ["Caso 1", "Caso 2", "Caso 3", "Caso 4", "Caso 5", "Slider"])
+    custom = st.selectbox("Elegi la opcion: ", 
+                          ["Caso 1", "Caso 2", "Caso 3", "Caso 4", "Caso 5", "Slider", "Grafico Lineal"])
     match custom:
         case "Caso 1":
             codigo_uno()
@@ -102,6 +135,8 @@ def codigo_principal():
             codigo_cinco()
         case "Slider":
             codigo_seis()
+        case "Grafico Lineal":
+            codigo_siete()
 
 
 
