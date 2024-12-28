@@ -187,7 +187,17 @@ def codigo_ocho():
             st.write("Here you go 🥤")
 """, language="python")
 
-    
+
+def codigo_nueve():
+    st.write("# st.latex()")
+    st.write("Expresa funciones matematicas")
+    st.latex(r'''
+     a + ar + a r^2 + a r^3 + \cdots + a r^{n-1} =
+     \sum_{k=0}^{n-1} ar^k =
+     a \left(\frac{1-r^{n}}{1-r}\right)
+     ''')
+    st.latex("E=MC^2")
+
 
 ####################### Codigo de funcionalidad ###############################
 
@@ -196,7 +206,8 @@ def codigo_principal():
     
     custom = st.selectbox("Elegi la opcion: ", 
                           ["Boton","Write", "Data Frame", 
-                           "Show graph", "Slider", "Grafico Lineal", "Select Box"])
+                           "Show graph", "Slider", "Grafico Lineal", "Select Box",
+                           "Latex"])
     match custom:
         case "Boton":
             codigo_uno()
@@ -212,6 +223,8 @@ def codigo_principal():
             codigo_siete()
         case "Select Box":
             codigo_ocho() 
+        case "Latex":
+            codigo_nueve()
 
 
 
