@@ -60,23 +60,7 @@ def codigo_cinco():
 
 
 def codigo_principal():
-
-    st.write("## Codigo de caja de seleccion.")
-
-    st.code("""
-    custom = st.selectbox("Elegi la opcion: ", ["Caso 1", "Caso 2", "Caso 3", "Caso 4", "Caso 5"])
-    match custom:
-        case "Caso 1":
-            codigo_uno()
-        case "Caso 2":
-            codigo_dos()
-        case "Caso 3":
-            codigo_tres()
-        case "Caso 4":
-            codigo_cuatro()
-        case "Caso 5":
-            codigo_cinco()""", language="python")
-
+    
     custom = st.selectbox("Elegi la opcion: ", ["Caso 1", "Caso 2", "Caso 3", "Caso 4", "Caso 5"])
     match custom:
         case "Caso 1":
