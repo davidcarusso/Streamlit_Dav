@@ -314,14 +314,15 @@ def codigo_trece():
 ####################### Codigo de funcionalidad ###############################
 
 
-def codigo_principal():
+def menu_desplegable():
 
     pestañas = ["Boton","Write", "Data Frame", 
                 "Show graph", "Slider", "Grafico Lineal", 
                 "Select Box", "Latex", "Archivos",
                 "Diseño", "Progreso", "Fomulario"]
     
-    custom = st.sidebar.selectbox("Opciones", pestañas)
+    with st.sidebar:
+        custom = st.selectbox("Opciones", pestañas)
 
     match custom:
         case "Boton":
@@ -352,7 +353,7 @@ def codigo_principal():
 
 
 def main():
-    codigo_principal()
+    menu_desplegable()
 
 
 
