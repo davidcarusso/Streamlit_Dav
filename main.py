@@ -273,6 +273,7 @@ def codigo_doce():
 def codigo_trece():
     st.write("# Formularios")
 
+    #   Form pais
     with st.form('my_form', clear_on_submit=True):
         st.write("Ingrese sus datos:")
 
@@ -280,6 +281,8 @@ def codigo_trece():
         name = st.text_input("Ingrese su nombre")
         edad = st.slider("Ingrese su edad:", 0, 120,18)
         pais = st.selectbox("Pais de origen:", ["Argentina", "Uruguay"], index=None)           #   importante agregar index=None asi inicia en vacio en st.selectbox
+        form_dict = {"name": name,"edad": edad, "pais": pais}
+
 
         #   Siempre debe tener un submit de la informacion
         submitted = st.form_submit_button("Enviar")
@@ -287,8 +290,9 @@ def codigo_trece():
         match submitted:
             case True:
                 st.write(f"Hola {name.capitalize()} que tienes {edad} años y vives en {pais.capitalize()}.")
+                st.write(form_dict)        # imprime el dictionary
     
-
+    #   Form Contacto
     with st.form("Contacto", clear_on_submit=True):
         st.write("Contatame")
         
@@ -299,9 +303,7 @@ def codigo_trece():
         submitted = st.form_submit_button("Enviar")
         match submitted:
             case True:
-                col1, col2 = st.columns(2)
-                col1.st.write(f"Hola soy de {name} y quiero {mensaje}")
-
+                st.write(f"Hola soy de {name} y quiero {mensaje}")
 
     st.write("Fuera del formulario")
 
