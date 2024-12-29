@@ -267,10 +267,43 @@ def codigo_doce():
     for i in range(100):
         time.sleep(0.05)
         barra.progress(i + 1)
-    
-    
     st.balloons()
 
+
+def codigo_trece():
+    st.write("# Formularios")
+
+    with st.form('my_form', clear_on_submit=True):
+        st.write("Ingrese sus datos:")
+
+        #   Input para el ingreso de datos en el formulario
+        name = st.text_input("Ingrese su nombre")
+        edad = st.slider("Ingrese su edad:", 0, 120,18)
+        pais = st.selectbox("Pais de origen:", ["Argentina", "Uruguay"], index=None)           #   importante agregar index=None asi inicia en vacio en st.selectbox
+
+        #   Siempre debe tener un submit de la informacion
+        submitted = st.form_submit_button("Enviar")
+        #   Aca le agregamos logica a la informacion enviada, se puede anexar con librerias de envio de email
+        match submitted:
+            case True:
+                st.write(f"Hola {name.capitalize()} que tienes {edad} años y vives en {pais.capitalize()}.")
+    
+
+    with st.form("Contacto", clear_on_submit=True):
+        st.write("Contatame")
+        
+        name = st.text_input("Contame de donde me contactas:")
+        correo = st.text_input("Tu correo")
+        mensaje = st.text_area("Ingrese tu mensaje")
+
+        submitted = st.form_submit_button("Enviar")
+        match submitted:
+            case True:
+                col1, col2 = st.columns(2)
+                col1.st.write(f"Hola soy de {name} y quiero {mensaje}")
+
+
+    st.write("Fuera del formulario")
 
 
 
@@ -284,7 +317,7 @@ def codigo_principal():
     pestañas = ["Boton","Write", "Data Frame", 
                 "Show graph", "Slider", "Grafico Lineal", 
                 "Select Box", "Latex", "Archivos",
-                "Diseño", "Progreso"]
+                "Diseño", "Progreso", "Fomulario"]
     custom = st.selectbox("Elegi la opcion: ", pestañas)
 
     match custom:
@@ -310,6 +343,8 @@ def codigo_principal():
             codigo_once()
         case "Progreso":
             codigo_doce()
+        case "Fomulario":
+            codigo_trece()
 
 
 
