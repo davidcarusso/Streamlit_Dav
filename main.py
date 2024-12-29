@@ -4,6 +4,12 @@ import numpy as np
 import altair as alt
 from datetime import time, datetime
 
+
+
+    #   Muestra el contenido de la aplicación en modo ancho 
+    #   (de lo contrario, de forma predeterminada, el contenido se encapsula en un cuadro de ancho fijo).
+#st.set_page_config(layout="wide")
+
 def codigo_uno():
     st.write("# st.button")
     st.write("### Hola mundo!!!")
@@ -214,19 +220,59 @@ def codigo_diez():
         st.write(df.head())
         st.write("## Descripcion")
         st.write(df.describe())
+
     else:    
         st.info("☝️ Subir archivo CSV")
+
+
+def codigo_once():
+    st.write("# Diseño de la aplicacion")
+
+    with st.sidebar:
+        st.write("Ingreso")
+        name = st.text_input("Cual es tu nombre ?")
+        emoticon_lista = ['', '😄', '😆', '😊', '😍', '😴', '😕', '😱']
+        emoticon = st.selectbox("Decida su emoticon", emoticon_lista)
+        comida_lista = ['', 'Tom Yum Kung', 'Burrito', 'Lasagna', 'Hamburger', 'Pizza']
+        comida = st.selectbox("Cual es su comida favorita?", comida_lista)
+
+    st.write("# Salida")
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        if name != "":
+            st.write(f"👋 Hola {name.capitalize()}!")
+        else:
+            st.write(f"Ingrese su nombre!")
+
+    with col2:
+        if emoticon != "":
+            st.write(f"{emoticon} es tu emocion favorita!")
+        else:
+            st.write("Por favor escoge un emoticon!")
+
+    with col3:
+        if comida != "":
+            st.write(f"🍴 **{comida}** es tu comida favorita!")
+        else:
+            st.write("Por favor escoja su comida favorita.")
+
+
+
+
 
 
 ####################### Codigo de funcionalidad ###############################
 
 
 def codigo_principal():
-    
-    custom = st.selectbox("Elegi la opcion: ", 
-                          ["Boton","Write", "Data Frame", 
-                           "Show graph", "Slider", "Grafico Lineal", "Select Box",
-                           "Latex", "Archivos"])
+
+    pestañas = ["Boton","Write", "Data Frame", 
+                "Show graph", "Slider", "Grafico Lineal", 
+                "Select Box", "Latex", "Archivos",
+                "Diseño"]
+    custom = st.selectbox("Elegi la opcion: ", pestañas)
+
     match custom:
         case "Boton":
             codigo_uno()
@@ -246,6 +292,8 @@ def codigo_principal():
             codigo_nueve()
         case "Archivos":
             codigo_diez()
+        case "Diseño":
+            codigo_once()
 
 
 
