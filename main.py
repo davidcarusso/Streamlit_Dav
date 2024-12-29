@@ -320,7 +320,8 @@ def codigo_principal():
                 "Show graph", "Slider", "Grafico Lineal", 
                 "Select Box", "Latex", "Archivos",
                 "Diseño", "Progreso", "Fomulario"]
-    custom = st.selectbox("Elegi la opcion: ", pestañas)
+    
+    custom = st.sidebar.selectbox("Opciones", pestañas)
 
     match custom:
         case "Boton":
