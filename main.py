@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import altair as alt
 from datetime import time, datetime
+import time
 
 
 
@@ -258,6 +259,19 @@ def codigo_once():
             st.write("Por favor escoja su comida favorita.")
 
 
+def codigo_doce():
+    st.write("# st.progress()")
+
+    barra = st.progress(0)
+
+    for i in range(100):
+        time.sleep(0.05)
+        barra.progress(i + 1)
+    
+    
+    st.balloons()
+
+
 
 
 
@@ -270,7 +284,7 @@ def codigo_principal():
     pestañas = ["Boton","Write", "Data Frame", 
                 "Show graph", "Slider", "Grafico Lineal", 
                 "Select Box", "Latex", "Archivos",
-                "Diseño"]
+                "Diseño", "Progreso"]
     custom = st.selectbox("Elegi la opcion: ", pestañas)
 
     match custom:
@@ -294,6 +308,8 @@ def codigo_principal():
             codigo_diez()
         case "Diseño":
             codigo_once()
+        case "Progreso":
+            codigo_doce()
 
 
 
