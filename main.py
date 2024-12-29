@@ -189,14 +189,33 @@ def codigo_ocho():
 
 
 def codigo_nueve():
+
     st.write("# st.latex()")
     st.write("Expresa funciones matematicas")
     st.latex(r'''
-     a + ar + a r^2 + a r^3 + \cdots + a r^{n-1} =
-     \sum_{k=0}^{n-1} ar^k =
-     a \left(\frac{1-r^{n}}{1-r}\right)
-     ''')
+    a + ar + a r^2 + a r^3 + \cdots + a r^{n-1} =
+    \sum_{k=0}^{n-1} ar^k =
+    a \left(\frac{1-r^{n}}{1-r}\right)
+    ''')
     st.latex("E=MC^2")
+
+
+def codigo_diez():
+    st.write("""
+        # st.file_uploader()
+        ## Input CSV
+
+""")
+    archivo = st.file_uploader("Choce a file")
+
+    if archivo is not None:
+        df = pd.read_csv(archivo)
+        st.write("## DataFrame")
+        st.write(df.head())
+        st.write("## Descripcion")
+        st.write(df.describe())
+    else:    
+        st.info("☝️ Subir archivo CSV")
 
 
 ####################### Codigo de funcionalidad ###############################
@@ -207,7 +226,7 @@ def codigo_principal():
     custom = st.selectbox("Elegi la opcion: ", 
                           ["Boton","Write", "Data Frame", 
                            "Show graph", "Slider", "Grafico Lineal", "Select Box",
-                           "Latex"])
+                           "Latex", "Archivos"])
     match custom:
         case "Boton":
             codigo_uno()
@@ -225,6 +244,8 @@ def codigo_principal():
             codigo_ocho() 
         case "Latex":
             codigo_nueve()
+        case "Archivos":
+            codigo_diez()
 
 
 
