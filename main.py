@@ -308,6 +308,29 @@ def codigo_trece():
     st.write("Fuera del formulario")
 
 
+def codigo_catorce():
+
+    #   Revisar despues cual puede ser un caso de uso practico con session_state
+
+    #   aca une los dos imput
+    def lbl_kg():
+        st.session_state.kg = st.session_state.lbs/2.2046
+
+    def kg_lbs():
+        st.session_state.lbs = st.session_state.kg*2.2046
+
+    st.title("st.session_state")
+    st.header("Input")
+
+    col1, spacer, col2 = st.columns([2,1,2])    # mirar el separador que agrega espacios 
+    with col1:
+        libras = st.number_input("Pound",key="lbs", on_change=lbl_kg)
+    with col2:
+        kilos = st.number_input("Kilos",key="kg", on_change=kg_lbs)
+
+
+    st.write("## Salida")
+    st.write("st.session_state object:", st.session_state)
 
 
 
@@ -319,10 +342,11 @@ def menu_desplegable():
     pestañas = ["Boton","Write", "Data Frame", 
                 "Show graph", "Slider", "Grafico Lineal", 
                 "Select Box", "Latex", "Archivos",
-                "Diseño", "Progreso", "Fomulario"]
+                "Diseño", "Progreso", "Fomulario", "Sesiones"]
     
     with st.sidebar:
         custom = st.selectbox("Opciones", pestañas)
+        st.write("Creado por CaruDavi")
 
     match custom:
         case "Boton":
@@ -349,6 +373,10 @@ def menu_desplegable():
             codigo_doce()
         case "Fomulario":
             codigo_trece()
+        case "Sesiones":
+            codigo_catorce()
+    
+    
 
 
 
