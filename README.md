@@ -15,16 +15,19 @@ Este proyecto contiene una serie de ejemplos educativos para explorar las funcio
 
 ## Cómo ejecutar este proyecto
 
-1. Clona el repositorio:
-'''bash
+1. **Clona el repositorio:**
+```bash
 git clone https://github.com/tuusuario/Streamlit_Dav.git
+```
 
-2. Instala las dependencias:
-´pip install -r requirements.txt´
-
-3. Ejecuta la aplicación:
-´streamlit run main.py´
-
+2. **Instala las dependencias:**
+```bash
+pip install -r requirements.txt
+```
+3. **Ejecuta la aplicación:**
+```bash
+streamlit run main.py
+```
 
 ## Funcionalidades Incluidas
 
