@@ -17,7 +17,7 @@ Este proyecto contiene una serie de ejemplos educativos para explorar las funcio
 
 1. **Clona el repositorio:**
 ```bash
-git clone https://github.com/tuusuario/Streamlit_Dav.git
+git clone https://github.com/davidcarusso/Streamlit_Dav.git
 ```
 
 2. **Instala las dependencias:**
