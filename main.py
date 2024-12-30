@@ -333,6 +333,10 @@ def codigo_catorce():
     st.write("st.session_state object:", st.session_state)
 
 
+### 🗓️ Día 26
+
+
+
 
 ####################### Codigo de funcionalidad ###############################
 
