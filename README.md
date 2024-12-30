@@ -16,19 +16,13 @@ Este proyecto contiene una serie de ejemplos educativos para explorar las funcio
 ## Cómo ejecutar este proyecto
 
 1. Clona el repositorio:
-bash
-Copiar código
-git clone https://github.com/tuusuario/Streamlit_Dav.git
+´git clone https://github.com/tuusuario/Streamlit_Dav.git´
 
 2. Instala las dependencias:
-bash
-Copiar código
-pip install -r requirements.txt
+´pip install -r requirements.txt´
 
 3. Ejecuta la aplicación:
-bash
-Copiar código
-streamlit run main.py
+´streamlit run main.py´
 
 
 ## Funcionalidades Incluidas
@@ -38,5 +32,6 @@ streamlit run main.py
 - Carga de archivos: Sube archivos CSV para un análisis rápido y eficiente.
 
 ## Contribución
-Las contribuciones son bienvenidas. Por favor, abre un issue o envía un pull request con tus mejoras.
+Las contribuciones son bienvenidas. 
+Por favor, abre un issue o envía un pull request con tus mejoras.
 
