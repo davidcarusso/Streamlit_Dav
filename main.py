@@ -7,8 +7,14 @@ import time
 
 
 
-    #   Muestra el contenido de la aplicación en modo ancho 
-    #   (de lo contrario, de forma predeterminada, el contenido se encapsula en un cuadro de ancho fijo).
+st.set_page_config(
+    page_title="Demo Streamlit",
+    page_icon="📊"
+)
+
+
+#   Muestra el contenido de la aplicación en modo ancho 
+#   (de lo contrario, de forma predeterminada, el contenido se encapsula en un cuadro de ancho fijo).
 #st.set_page_config(layout="wide")
 
 def codigo_uno():
@@ -54,9 +60,6 @@ def codigo_cinco():
     df = pd.DataFrame(
         np.random.rand(200,3),
         columns=["a", "b", "c"]
-    )
-    c = alt.Chart(df).mark_circle().encode(
-        x='a', y='b', size='c', color='c', tooltip=['a', 'b', 'c']
     )
 
     with col1:
